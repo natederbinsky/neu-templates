@@ -1,0 +1,80 @@
+
+\documentclass{neu_exam}
+
+%%
+
+\usepackage{enumerate}
+\everymath{\displaystyle}
+
+%%
+
+\author{Professor Euler}
+\title{Exam I}
+\date{Fall 2017}
+\course{MATH10000}{Introduction to Maths}
+
+\ExamInstruction{The exam is closed book and no notes may be used.}
+\ExamInstruction{No electronic devices may be used, including calculators, cell phones, cameras, and computers.}
+\ExamInstruction{Show your work!}
+
+\ProblemDeclaration{Integral Evaluation}{60}
+\ProblemDeclaration{Integral Convergence}{10}
+\ProblemDeclaration{Fundamental Theorem}{20}
+\ProblemDeclaration{Trapezoidal Rule}{10}
+
+%%
+
+\begin{document}
+
+\begin{ProblemDefinition}[Evaluate the following:]
+
+	\begin{enumerate}[a)]
+
+		\item $\int_1^e{ \frac{ (ln(x))^2 }{ x } dx }$
+
+		\vspace{10.0cm}
+		\item{$\int{ x e^x dx }$}
+
+		\newpage
+
+		\item{$\int{ \frac{ 3x^2 + 2 }{ x( x^2 + 1 ) } dx }$}
+		
+		\vspace{10.0cm}
+		\item{$\int{ sin^3(x) cos(x) dx }$}
+
+	\end{enumerate}
+
+\end{ProblemDefinition}
+
+%%
+
+\begin{ProblemDefinition}
+
+	Determine whether $ \int_1^\infty{ \frac{ 1 }{ x + e^x } dx } $ is convergent or divergent.
+
+\end{ProblemDefinition}
+
+%%
+
+\begin{ProblemDefinition}[Find:]
+
+	\begin{enumerate}[a)]
+	
+		\item $ \frac{d}{dx} \int_1^x{ e^{ t^2 } dt } $
+	
+		\vspace{10.0cm}
+		\item $ \frac{d}{dx} \int_1^{x^2}{ e^{ t^2 } dt } $
+	
+	\end{enumerate}
+
+\end{ProblemDefinition}
+
+\begin{ProblemDefinition}
+
+	How large should we take $n$ in order to guarantee that the Trapezoidal Rule approximation for $ \int_2^3{ ln(x) dx } $ is accurate to within $\frac{1}{4800}$?
+
+\end{ProblemDefinition}
+
+%%
+
+\end{document}

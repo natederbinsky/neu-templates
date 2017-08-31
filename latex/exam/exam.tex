@@ -1,0 +1,197 @@
+
+\documentclass{neu_exam}
+
+%% Optional inclusion of packages and/or commands/definitions
+\usepackage{listings}
+\usepackage{color}
+\usepackage{enumerate}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  %frame=tb,
+  language=C++,
+  %aboveskip=3mm,
+  %belowskip=3mm,
+  showstringspaces=false, % shows string space character
+  %columns=flexible,
+  basicstyle={\small\ttfamily},
+  % numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  escapeinside=`',
+}
+
+
+% Course/Professor information
+\title{Midterm Exam}
+\author{Professor Foo}
+\date{Summer 1956}
+\course{CS1000}{Introduction to Computing}
+
+
+% List of front-page instructions
+\ExamInstruction{Don't cheat!}
+\ExamInstruction{Be considerate of others}
+\ExamInstruction{All responses must be written in \textbf{pen}.}
+
+
+% Each problem: Name, Points
+\ProblemDeclaration{Write a Function \#1}{70}
+\ProblemDeclaration{Write a Program}{70}
+\ProblemDeclaration{Write a Function \#2}{60}
+\ProblemDeclaration{Predict the Output}{60}
+\ProblemDeclaration{Fill in the Blanks}{40}
+\BonusDeclaration{Bonus}{30}
+
+
+% Could be anything, but most likely just a sequence of \ProblemDefinition environments
+\begin{document}
+
+\begin{ProblemDefinition}[%
+Write a function definition that implements the following description and nothing else (you do not need to write the \texttt{main()} function).
+]
+
+The function \texttt{foo} must output the string ``foo'' to the terminal (without the quotes).
+
+\end{ProblemDefinition}
+
+%%
+
+\begin{ProblemDefinition}
+
+The program first gets a single value from the user: the mass of an object.
+The program then computes and outputs the energy equivalence, as measured by the following seminal equation:
+\\
+
+$E=mc^2$
+\\
+
+where the constant $c$ is the speed of light (299,792,458 meters per second).
+You may use the next page as scratch work -- \textbf{only work on the page will be graded}.
+
+\newpage
+
+\textit{This page intentionally left blank.}
+
+\end{ProblemDefinition}
+
+%%
+
+\begin{ProblemDefinition}[Write a function definition that implements the following description and nothing else (you do not need to write the \texttt{main()} function).]
+
+The function \texttt{bar\_file} is passed an \texttt{ofstream} argument that has already been opened on a file.
+The function should output the string ``bar'' to this file (without the quotes).
+
+\end{ProblemDefinition}
+
+%%
+
+\begin{ProblemDefinition}[%
+Predict the output to the terminal window when the following program fragments are executed.
+]
+
+\begin{tabular*}{1.0\textwidth}{ | p{\dimexpr 0.55\linewidth-2\tabcolsep} | p{\dimexpr 0.45\linewidth-2\tabcolsep} | }
+\hline
+\textbf{Fragment} & \textbf{Output Seen in Terminal Window} \tabularnewline \hline
+
+\begin{lstlisting}
+
+cout << "foo" << endl;
+
+
+
+\end{lstlisting}
+& \tabularnewline \hline
+
+\begin{lstlisting}
+
+cout << "bar" << endl;
+
+
+
+\end{lstlisting}
+& \tabularnewline \hline
+
+\begin{lstlisting}
+
+cout << "baz" << endl;
+
+
+
+\end{lstlisting}
+& \tabularnewline \hline
+
+\begin{lstlisting}
+
+cout << "quz" << endl;
+
+
+
+\end{lstlisting}
+& \tabularnewline \hline
+
+\end{tabular*}
+
+\end{ProblemDefinition}
+
+%%
+
+\begin{ProblemDefinition}[%
+Fill in the 5 blanks in the program below.
+]
+
+\vspace{-0.7cm}
+\begin{lstlisting}
+
+#include `\BlankText{ < i o s t r e a m > }'
+using namespace `\BlankText{ s t d; }';
+
+// Outputs "hello world" to the terminal
+`\BlankText{ i n t }' main()
+{
+  `\BlankText{ c o u t }' << "hello world" << endl;
+  `\BlankText{ r e t u r n }' 0;
+}
+
+\end{lstlisting}
+
+\end{ProblemDefinition}
+
+%%
+
+\begin{ProblemDefinition}[%
+Each correct response below is worth 10 bonus points.
+]
+
+\begin{enumerate}[a)]
+
+\vspace{0.0cm}
+\item{%
+What\dots \ is your name?
+}
+
+\vspace{5.0cm}
+\item{%
+What\dots \ is your quest?
+}
+
+\vspace{5.0cm}
+\item{%
+What\dots \ is the air-speed velocity of an unladen swallow?
+}
+
+\end{enumerate}
+
+\end{ProblemDefinition}
+
+%%
+
+\end{document}
