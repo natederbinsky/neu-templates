@@ -1,0 +1,40 @@
+
+\documentclass{neu_schedule}
+
+% Professor/Semester info
+\author{Professor Foo}
+\date{Spring 1984}
+
+\begin{document}
+
+% Basic contact information (optional)
+\section*{Contact}
+
+\begin{tabular}{l l}
+Phone: & (617) 373-WXYZ \\
+E-Mail: & email@northeastern.edu \\
+\end{tabular}
+\\
+
+The best way to reach me is by \underline{e-mail}. You can also reach me by phone and we can arrange a time to meet in person.
+
+% Schedule
+\section*{Schedule}
+
+\begin{ScheduleWeek}
+
+	\slotclass{m}{4}{CS 2500}{2}
+	\slotclass{w}{4}{CS 2500}{2}
+	\slotclass{f}{4}{CS 2500}{2}
+
+	\slotclass{t}{8}{CS 1800}{4}
+	\slotclass{h}{8}{CS 1800}{4}
+
+	\slotaway{h}{14}{College Mtg}{4}
+
+	\slotoffice{m}{12}{Office Hours}{6}
+	\slotoffice{w}{26}{Office Hours}{6}
+
+\end{ScheduleWeek}
+
+\end{document}
