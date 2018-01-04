@@ -1,6 +1,6 @@
 
 body {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
     font-size: 16px;
 }
@@ -15,8 +15,32 @@ a:hover {
     text-decoration: underline;
 }
 
+.navbar {
+	margin-bottom: 0;
+	background-color: #353535;
+	/*z-index: 9999;*/
+	border: 0;
+	font-size: 12px !important;
+	/* line-height: 1.42857143 !important; */
+	letter-spacing: 0.1px;
+	border-radius: 0;
+
+	opacity: 0.95;
+
+	text-transform: uppercase;
+}
+
+.navbar li a, .navbar .navbar-brand {
+	color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+	color: #563d7c !important;
+	background-color: #fff !important;
+}
+
 .school-header {
-    padding: 20px 0px 5px 0px;
+    padding: 70px 0px 5px 0px;
 }
 
 .school-header #logo {
