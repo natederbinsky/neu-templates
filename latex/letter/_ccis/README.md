@@ -5,7 +5,7 @@ Basic letterhead.
 ## Usage
 See the example **letter.tex** document.
 
-1. `\documentclass{khoury_letter}`
+1. `\documentclass{ccis_letter}`
 2. ...
 3. `\open{ **salutation here** }`
 4. `\close{ **signature block here** }`
