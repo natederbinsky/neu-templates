@@ -1,6 +1,6 @@
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{khoury_letter}[2019/01/02 Khoury College Letter Class]
+\ProvidesClass{khoury_letter}[2019/01/30 Khoury College Letter Class]
 
 \LoadClass[11pt]{article}
 
@@ -19,7 +19,7 @@
 \newcommand{\myOpen}{To Whom It May Concern:}
 \newcommand{\myClose}{%
 Professor Foo-Bar \\
-Associate Teaching Professor, Khoury College of Computer and Information Sciences \\
+Associate Teaching Professor, Khoury College of Computer Sciences \\
 Phone: (617) 373-1234 \\
 E-Mail: foo.bar@northeastern.edu
 }
