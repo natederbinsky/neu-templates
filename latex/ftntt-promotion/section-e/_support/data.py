@@ -97,6 +97,12 @@ def chart_data():
         fs = '"{}", {:.2f}, {:.2f}, {}, {}'
         print(fs.format("{} {}".format(t[0], t[1]), statistics.mean(term_scores), statistics.mean(compare_scores), min(term_scores), max(term_scores)))
 
+def stats():
+    global sections
+
+    trace = [s['instr_mean'] for s in sections]
+
+    print("N={}, min={}, max={}, mean={:.3f}, stdev={:.3f}, median={:.3f}".format(len(trace), min(trace), max(trace), statistics.mean(trace), statistics.stdev(trace), statistics.median(trace)))
 
 
 #####
@@ -240,4 +246,5 @@ add_section(
 #####
 
 # summary_table()
-chart_data()
+# chart_data()
+stats()
