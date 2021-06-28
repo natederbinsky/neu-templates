@@ -1,0 +1,54 @@
+{% extends "course/page.jinja" %}
+
+{% block title %}Hidden Page :){% endblock %}
+
+{% block content %}
+    {% call section( self.title() ) %}
+        <p>
+            Don't tell anyone!
+        </p>
+    {% endcall %}
+
+    {% call section( 'Embedded Image' ) %}
+        <p>
+            {{ data.img1 -}}
+        </p>
+    {% endcall %}
+
+    {% call section( 'Code via Python String', autoIndent=False ) %}
+
+{{- data.code1 -}}
+
+    {% endcall %}
+
+    {% call section( 'Code via File', autoIndent=False ) %}
+
+{{- data.code2 -}}
+
+    {% endcall %}
+
+    {% call section( 'Code via Jinja Highlight', autoIndent=False ) %}
+
+{% highlight 'Racket' %}
+; f : Number -> Number
+; performs a mysterious operation to a number
+
+(check-expect (f 1) 2)
+(check-expect (f 2) 5)
+(check-expect (f 3) 10)
+(check-expect (f 4) 17)
+
+(define (f x)
+  (add1
+   (* x x)))
+{% endhighlight %}
+
+    {% endcall %}
+
+    {% call section( 'Another Language!?', autoIndent=False ) %}
+
+{{- data.code3 -}}
+
+    {% endcall %}
+
+{% endblock %}

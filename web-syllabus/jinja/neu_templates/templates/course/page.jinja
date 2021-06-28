@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{{ _tdata.site_title }} | {% block title required %}{% endblock %}</title>
+
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+	<link href="css/code.css" rel="stylesheet">
+
+    {%- block head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<button type="button" class="navbar-toggle navbar-right" data-toggle="collapse" data-target="#myNavbar" id="burger">
+				<span class="icon-bar" style="background-color: white"></span>
+				<span class="icon-bar" style="background-color: white"></span>
+				<span class="icon-bar" style="background-color: white"></span>
+			</button>
+
+			<div class="navbar-header">
+				<a class="navbar-brand" href="{{ _tdata.nav[_tdata.home] }}">
+					<span class="hidden-xs">{{ _tdata.brand_big }}</span>
+					<span class="visible-xs">{{ _tdata.brand_small }}</span>
+				</a>
+			</div>
+
+			{% set _fname = self._TemplateReference__context.name[self._TemplateReference__context.name.rfind('/')+1:] -%}
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+				{% for k,v in _tdata.nav.items() -%}
+					<li{% if v == _fname %} class="active"{% endif %}><a href="{{ v }}">{{ k }}</a></li>
+				{%- endfor %}
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+    <div class="container">
+        <div class="school-header">
+			<a href="https://www.khoury.northeastern.edu" target="_blank"><img id="logo" class="img-responsive" src="img/logo.png" /></a>
+
+			<div id="info" class="row">
+				<div class="col-md-2">{{ _tdata.semester }}</div>
+				<div class="col-md-2">{{ _tdata.section }}</div>
+			</div>
+		</div>
+
+        {%- from 'course/_section.jinja' import section, sectionKV, sectionPerson, sectionTable, sectionGradingScale, sectionClassroomEnvironment %}
+        {%- block content required %}{%- endblock %}
+
+        <div class="school-footer">
+			<footer>
+				<small><em>
+					<script>
+						document.write("This page was last modified on: " + document.lastModified +"");
+					</script>
+				</em></small>
+			</footer>
+		</div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			// enable tooltips
+			$('[data-toggle="tooltip"]').tooltip();
+
+            {% if _tdata.nav|length <= 1 %}
+            $('#burger').hide();
+            {% endif %}
+		});
+	</script>
+</body>
+</html>

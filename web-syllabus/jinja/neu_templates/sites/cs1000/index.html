@@ -1,0 +1,38 @@
+{% extends "course/page.jinja" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% call section( 'Meeting' ) -%}
+        {{ sectionKV((
+            ('Time', 'Tuesdays 6-9pm'), 
+            ('Location', '<a href="https://www.northeastern.edu/campusmap/map/qad4.html" target="_blank">Shillman Hall 420</a>'),
+        )) }}
+    {%- endcall %}
+
+    {% call section( 'Instruction Team' ) -%}
+        {%- for prof in data.profs %}
+        {{- sectionPerson(prof.name, prof.img, (
+            ( 'E-Mail', prof['email'] ),
+            ( 'Web', prof['web'] ),
+            ( 'Phone', prof['phone'] ),
+            ( 'Office Hours', prof['oh'] ),
+        )) }}
+        {%- endfor %}
+
+        {%- for ta in data.tas %}
+        {{ sectionPerson(ta.name + ' (Teaching Assistant)', ta.img, (
+            ( 'E-Mail', ta['email'] ),
+            ( 'Office Hours', ta['oh'] ),
+            ( '', '' ),
+            ( '', '' ),
+        )) }}
+        {%- endfor %}
+    {%- endcall %}
+
+    {% call section( 'Extra Information' ) -%}
+    <p>
+        See <a href="notnav.html">this page</a> for some extra information not in the navigation menu.
+    </p>
+    {%- endcall %}
+{% endblock %}

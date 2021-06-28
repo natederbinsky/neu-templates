@@ -1,0 +1,85 @@
+{% extends "course/page.jinja" %}
+
+{% block title %}Policies{% endblock %}
+
+{% block content %}
+    {% call section( 'Course Goals' ) %}
+        <p>
+            This course introduces useful things...
+        </p>
+
+        {{ sectionKV((
+            ('Lectures', 'will focus on conceptual things.'),
+            ('Homework', 'will ask students to apply their knowledge of things.'),
+            ('Team Project', 'will allow students to collaboratively work on a real-life example of things.'),
+        )) }}
+    {% endcall %}
+
+    {% call section( 'Evaluation' ) %}
+        <p>The final grade for this course will be weighted as follows...</p>
+
+        <ul>
+            <li>Homework: 40%</li>
+            <li>Exams: 40%</li>
+            <li>Project: 20%</li>
+            <li>Participation (<a href="#" data-toggle="tooltip" title="Bonus points earned through class participation will be used to adjust the final grade upwards at the discretion of the instructor.">bonus</a>): 10%</li>
+        </ul>
+
+        <p>Final grades will be assigned based on the following scale...</p>
+
+        {{ sectionGradingScale( data.scale ) }}
+
+        <p>
+            At the time of final-grade determination, numeric grades are rounded naturally (e.g. 94.4 is a 94, but 94.5 is a 95).
+        </p>
+
+        <h2>Homework</h2>
+        <p>
+            Submissions will be made via <a target="_blank" href="https://northeastern.instructure.com" target="_blank">Canvas</a>.
+            Written work (e.g. problems, diagrams, reports) is to be professionally typeset and submitted as a PDF.
+            Code is expected to be professional and properly documented.
+        </p>
+
+        <h2>Project</h2>
+        <p>
+            The goal of the project is to gain hands-on experience with developing things from the ground up.
+        </p>
+
+        <h2>Make-up Policy</h2>
+        <p>
+            All assignments have a specific due date and time.
+            Submissions will be accepted <em>up to one day</em> after the deadline with a <span style="text-decoration: underline">50% penalty</span>.
+            The assignment will be graded and returned as normal, but the grade will be recorded as half of what was earned.
+            For example, if an on-time submission receives a grade of 90 points; the same assignment submitted after the deadline would receive 45 points (90 x 0.5).
+            However, since everybody makes mistakes ... each student will receive <strong>one</strong> exception to the penalty: the submission must still be turned in at most one day after the deadline, but no penalty will be incurred the first time this happens.
+        </p>
+
+        <p>
+            Students who miss scheduled exams will not, as a matter of course, be able to make up those exams.
+            If there is a legitimate reason why a student will not be able to complete an assignment on time or not be present for an exam, then they should contact the instructor beforehand.
+            Under extreme circumstances, as decided on a case-by-case basis by the instructor, students may be allowed to make up assignments or exams without first informing the instructor.
+        </p>
+
+        <h2>Academic Conduct</h2>
+        <p>
+            This class has very strict standards for borrowing code: if you borrow anything for use in your homework/project, you must have a citation.
+            A good guideline is that if you take more than three lines of code from some source, you must include the information on where it came from.
+            A URL or a notation (e.g., "MATLAB help files") is fine.
+            If it is an entire function, note it at the beginning of the code segment and include any original credit information.
+            Provide a qualitative description of what you used, and what you changed/contributed.
+            <strong>If you have a question about what is considered a violation of this policy, ASK!</strong>
+        </p>
+
+        <p>
+            Unless stated otherwise, assignments reflect individual work.
+            While you may discuss concepts and ideas with other students, there is to be no direct collaboration.
+            If you steal someone else's work, you fail the class.
+            If someone uses your work, you fail the class.
+            If you are unsure about this policy, <strong>ask the instructor</strong>.
+            The university's academic integrity policy discusses actions regarded as violations and consequences for students: <a href="http://www.northeastern.edu/osccr/academic-integrity" target="_blank">http://www.northeastern.edu/osccr/academic-integrity</a>
+        </p>
+    {% endcall %}
+
+    {{ sectionClassroomEnvironment(covid=false) }}
+
+{% endblock %}

@@ -1,0 +1,176 @@
+        {%- macro section(sectionTitle, autoIndent=True) %}
+        <div class="school-section">
+            {% if sectionTitle %}
+            <h1>{{ sectionTitle }}</h1>
+            {% else %}
+            <p></p>
+            {% endif %}
+            {% if autoIndent %}
+            {{ caller()|indent(4) }}
+            {% else %}
+            {{ caller() }}
+            {% endif %}
+
+            <!-- Just some space for prettiness :) -->
+            <div style="padding-bottom: 20px"></div>
+        </div>
+        {%- endmacro %}
+
+        {%- macro sectionKV(items) %}
+        <table class="table keyvalue">
+        {%- for k,v in items %}
+            <tr>
+                <td>{{ k }}</td>
+                <td>{{ v }}</td>
+            </tr>
+        {% endfor -%}
+        </table>
+        {%- endmacro %}
+
+        {%- macro sectionPerson(name, img, info, autoIndent=True) %}
+        <h2>{{ name }}</h2>
+        <div class="row">
+            <div class="col-sm-2">
+                <img src="{{ img }}" class="img-responsive img-rounded" />
+            </div>
+            <div class="col-sm-8">
+                {% if autoIndent %}
+                {{- sectionKV(info)|indent(8) }}
+                {% else %}
+                {{- sectionKV(info) }}
+                {% endif %}
+            </div>
+        </div>
+        {%- endmacro %}
+
+        {%- macro sectionTable(headers, colStyles, rows) %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        {% for hname,hstyle in headers -%}
+                        <th style="{{ hstyle }}">{{ hname }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in rows -%}
+                    <tr>
+                        {% for c, cst in zip(r, colStyles) -%}
+                            <td style="{{ cst }}">{{ c }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        <div>
+        {%- endmacro %}
+
+        {%- macro sectionGradingScale(items) %}
+        {%- for k,v in items %}
+        <div class="row">
+            <div class="col-md-1"><code>{{ k }}</code></div>
+            <div class="col-md-2"><samp>{{ v }}</samp></div>
+        </div>
+        {% endfor -%}
+        <div class="row">&nbsp;</div>
+        {%- endmacro %}
+
+        {%- macro sectionClassroomEnvironment(covid=False) %}
+        {% call section( 'Classroom Environment' ) -%}
+        <p>
+            To create and preserve a classroom atmosphere that optimizes teaching and learning, all participants share a responsibility in creating a civil and non-disruptive forum for the discussion of ideas.
+            Students are expected to conduct themselves at all times in a manner that does not disrupt teaching or learning.
+            Your comments to others should be constructive and free from harassing statements.
+            You are encouraged to disagree with other students and the instructor, but such disagreements need to respectful and be based upon facts and documentation (rather than prejudices and personalities).
+            The instructor reserves the right to interrupt conversations that deviate from these expectations.
+            Repeated unprofessional or disrespectful conduct may result in a lower grade or more severe consequences.
+            Part of the learning process in this course is respectful engagement of ideas with others.
+        </p>
+
+        <h2>Title IX</h2>
+        <p style="font-style:italic">
+            Title IX of the Education Amendments of 1972 protects individuals from sex or gender-based discrimination, including discrimination based on gender-identity, in educational programs and activities that receive federal financial assistance.
+        </p>
+
+        <p>
+            Northeastern’s Title IX Policy prohibits Prohibited Offenses, which are defined as sexual harassment, sexual assault, relationship or domestic violence, and stalking.
+            The Title IX Policy applies to the entire community, including male, female, transgender students, faculty and staff.
+        </p>
+
+        <p>
+            If you or someone you know has been a survivor of a Prohibited Offense, <span style="font-style: italic; text-decoration: underline">confidential</span> support and guidance can be found through <strong>University Health and Counseling Services</strong> staff (<a href="http://www.northeastern.edu/uhcs/" target="_blank">http://www.northeastern.edu/uhcs/</a>) and the <strong>Center for Spiritual Dialogue and Service</strong> clergy members (<a href="http://www.northeastern.edu/spirituallife/" target="_blank">http://www.northeastern.edu/spirituallife/</a>).
+            By law, those employees are not required to report allegations of sex or gender-based discrimination to the University.
+        </p>
+
+        <p>
+            Alleged violations can be reported non-confidentially to the Title IX Coordinator within <strong>The Office for Gender Equity and Compliance</strong> at: <a href="mailto:titleix@northeastern.edu">titleix@northeastern.edu</a> and/or through <strong>NUPD</strong> (Emergency 617.373.3333; Non-Emergency 617.373.2121).
+            Reporting Prohibited Offenses to NUPD does <strong>NOT</strong> commit the victim/affected party to future legal action.
+        </p>
+
+        <p>
+            <span style="text-decoration: underline">Faculty members are considered "responsible employees"</span> at Northeastern University, meaning they are required to report all allegations of sex or gender-based discrimination to the Title IX Coordinator.
+        </p>
+
+        <p>
+            In case of an emergency, please call 911.
+        </p>
+
+        <p>
+            <strong>Please visit <a href="http://www.northeastern.edu/titleix" target="_blank">http://www.northeastern.edu/titleix</a> for a complete list of reporting options and resources both on- and off-campus.</strong>
+        </p>
+
+        <h2>Students with Disabilities</h2>
+        <p>
+            Students who have disabilities who wish to receive academic services and/or accommodations should visit the <a href="http://www.northeastern.edu/drc" target="_blank">Disability Resource Center</a> at 20 Dodge Hall or call (617) 373-2675.
+            If you have already done so, please provide your letter from the DRC to me early in the semester so that I can arrange those accommodations.
+        </p>
+
+        {% if covid %}
+        <h2>COVID-19</h2>
+        <p>
+            The university has put into place a robust plan to make the campus healthy and safe for all --- but you must do your part. 
+            On August 22, all students received an <a href="https://news.northeastern.edu/coronavirus/university-messages/university-response-to-unsafe-behavior/" target="_blank">email</a> from Senior Vice Chancellor for Student Affairs Madeleine Estabrook on the expectations for behavior both on campus and off campus. 
+            <strong>Please read it carefully today</strong>.
+        </p>
+        <p>
+            To summarize:
+            <ol>
+                <li>
+                    Gatherings on or off campus must conform to healthy practices as outlined by university and <a href="https://www.mass.gov/doc/revised-gatherings-order-august-7-2020" target="_blank">Massachusetts state guidance</a>. 
+                    If you host or attend an inappropriate party or gathering, you run the very real risk of immediate removal from the community.
+                </li>
+                <li>
+                    Wear a mask indoors and outdoors as you maintain a 6-foot distance from everyone. 
+                </li>
+                <li>
+                    Get tested every three days using the COVID-19 Test Scheduler (<a href="https://covid19-testing.northeastern.edu" target="_blank">covid19-testing.northeastern.edu</a>). 
+                    We may require more frequent testing as the semester progresses. 
+                    It's quick, easy and will help us to quickly identify and care for anyone who tests positive. 
+                    I will not be told the identity of anyone who tests positive, and you do not need to share that information with me or anyone else unless you want to. 
+                    If you receive a positive test result, you will be contacted by a member of the university's telehealth team who will provide you with next steps. 
+                </li>
+                <li>
+                    Do a Daily Wellness Check (<a href="https://wellness-check.northeastern.edu" target="_blank">wellness-check.northeastern.edu</a>), wash your hands well and regularly, and disinfect high-touch surfaces and spaces. 
+                </li>
+                <li>
+                    I will be wearing a <a href="https://news.northeastern.edu/coronavirus/reopening/policies-and-protocols/#face-covering-protocol" target="_blank">face covering</a> or mask as I teach and expect that you will do the same in class. 
+                    If you come to class without a mask, I'll ask you to go and <a href="https://news.northeastern.edu/coronavirus/reopening/frequently-asked-questions/#reopening" target="_blank">get one on campus</a>. 
+                    You can get a mask at the Visitor Center or at the Curry Student Center Help Desk. 
+                    If you refuse to wear a mask in class, I won’t be able to continue the class. 
+                    If you are not sitting six feet apart from your classmate, I’ll ask you to do so. 
+                    We won't be able to eat or drink in class (except water). 
+                    If you test positive, you will need to enter isolation as directed by the university's telehealth team. 
+                    I expect that you will not come in-person to class and that you will follow the guidance from the university telehealth team to isolate and get appropriate healthcare if needed. 
+                </li>
+                <li>
+                    Staying safe is a responsibility that we all must take seriously. 
+                    Keep in mind the "Protect the Pack" theme. 
+                    Remember that our individual actions will help everyone stay safe this fall. 
+                </li>
+            </ol>
+        </p>
+        {% endif %}
+
+        {%- endcall %}
+        {%- endmacro %}

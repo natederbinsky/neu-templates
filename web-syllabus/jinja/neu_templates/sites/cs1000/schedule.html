@@ -1,0 +1,37 @@
+{% extends "course/page.jinja" %}
+
+{% block title %}Schedule{% endblock %}
+
+{% block content %}
+    {% call section() -%}
+        <p>Note: This schedule is subject to change and will be adjusted as needed throughout the semester.</p>
+
+        {#- by hand
+        {{ sectionTable(
+            (('Week', ''),
+             ('Topics', ''),
+             ('Reading (completed <em>prior</em> to lecture', ''),
+             ('Due (default=R@6pm,<br />late=F@6pm)', '')),
+            ('', '', '', ''),
+            (
+                ('Sep 12', 'Course/Syllabus, Big Picture<ul><li>Install software</li></ul>', '1, 2', ''),
+                ('Sep 19', 'Details about things<ul><li>Group work on stuffs</li></ul>', '3, 4', 'Self-Test'),
+                ('Sep 26', '...<ul><li>Foo</li><li>Bar</li></ul>', '5.1', 'Final!'),
+            )
+        ) }}
+        -#}
+
+        {#- programmatically -#}
+        {{ sectionTable(*data['weeks']) }}
+
+        <h2>Resources</h2>
+        <p>Students are expected to read the materials in preparation of each lecture.</p>
+
+        <ul>
+            <li>
+                Authors. <span style="font-style: italic">Title</span>, 1st ed.
+    Addison-Wesley, 2016 (ISBN-13: 123-0123456789) [<a href="https://www.pearson.com" target="_blank">publisher</a>] [<a href="https://www.amazon.com" target="_blank">amazon</a>]
+            </li>
+        </ul>
+    {%- endcall %}
+{% endblock %}
