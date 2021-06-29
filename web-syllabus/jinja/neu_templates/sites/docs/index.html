@@ -43,7 +43,11 @@
             <ol>
                 <li>Create a folder in the <code>sites</code> subpackage that will contain your site-specific pages and resources (think of this as the <em>state</em> of your site; e.g., <code>sites/docs</code> in this case)...
                     <ul>
-                        <li>Create at least one page in this folder based upon Jinja files available for your desired template.</li>
+                        <li>Create at least one page in this folder based upon Jinja files available for your desired template.
+                            <ul>
+                                <li>The <code>extends</code> path should take the form: <code>TEMPLATE_NAME/FILE.JINJA</code></li>
+                            </ul>
+                        </li>
                         <li>Structure resources within this folder.</li>
                     </ul>
                 </li>
