@@ -1,6 +1,6 @@
-from neu_templates.core import site
+from neutemplates.core import site
 
-def build(site_dir, destination, pages, resources, nav, home, classNum, className, semester, section, data={}, globals={}):
+def build(site_dir, destination, pages, resources, nav, home, classNum, className, semester, section, data={}, globals={}, site_pkg=True):
     # validate nav
     for title, fname in nav.items():
         if fname not in pages:
@@ -43,7 +43,7 @@ def build(site_dir, destination, pages, resources, nav, home, classNum, classNam
     ##
 
     site.build(
-        templ_dir='course', 
+        templ_name='course', 
         site_dir=site_dir,
         destination=destination,
 
@@ -54,4 +54,6 @@ def build(site_dir, destination, pages, resources, nav, home, classNum, classNam
         templ_data=templ_data,
         site_data=data,
         globals=templ_globals,
+
+        site_pkg=site_pkg
     )

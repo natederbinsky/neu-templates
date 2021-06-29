@@ -1,4 +1,4 @@
-from neu_templates import course, webutil
+from neutemplates import course, webutil
 
 # list of files in custom subdirectory
 pages = [

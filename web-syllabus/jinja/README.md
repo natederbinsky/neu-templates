@@ -1,4 +1,4 @@
-# neu-templates
+# neutemplates
 
 ## Installation/Setup (via shell)
 1. (optional) `python3 -m venv venv`

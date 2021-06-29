@@ -1,4 +1,4 @@
-from neu_templates import bootstrap5, webutil
+from neutemplates import bootstrap5, webutil
 
 # list of files in custom subdirectory
 pages = [
@@ -14,7 +14,7 @@ resources = [
 # arbitrary dictionary of data to supply to all pages during render
 # (the following are required for this template)
 data = {
-    'system': 'neu-templates',
+    'system': 'neutemplates',
 }
 
 ##

@@ -1,6 +1,6 @@
-from neu_templates.core import site
+from neutemplates.core import site
 
-def build(site_dir, destination, pages, resources, data={}, globals={}):
+def build(site_dir, destination, pages, resources, data={}, globals={}, site_pkg=True):
     templ_resources = [
         'css/bootstrap.min.css',
         'js/bootstrap.bundle.min.js',
@@ -16,7 +16,7 @@ def build(site_dir, destination, pages, resources, data={}, globals={}):
     ##
 
     site.build(
-        templ_dir='bootstrap5', 
+        templ_name='bootstrap5', 
         site_dir=site_dir,
         destination=destination,
 
@@ -27,4 +27,6 @@ def build(site_dir, destination, pages, resources, data={}, globals={}):
         templ_data=templ_data,
         site_data=data,
         globals=templ_globals,
+
+        site_pkg=site_pkg
     )

@@ -54,8 +54,12 @@
                 
                 <li>Create a Python file outside all packages (e.g., <code>docs.py</code> in this case) that calls the appropriate template function to <em>build</em> your site; each template will require various inputs, but typically...
                     <ul>
-                        <li><strong>site_dir</strong>: the name of the folder in <code>sites</code> you created.</li>
-                        <li><strong>destination</strong>: the folder (relative to the Python file) in which to build your site (<strong>note: this folder will be deleted prior to each build</strong>).</li>
+                        <li><strong>site_dir</strong>: the name of the folder in <code>sites</code> you created.
+                            <ul>
+                                <li>The optional <strong>site_pkg</strong> parameter, if <code>True</code>, indicates the path (absolute or relative) is potentially outside the package.</li>
+                            </ul>
+                        </li>
+                        <li><strong>destination</strong>: the folder in which to build your site (<strong>note: this folder will be deleted prior to each build</strong>).</li>
                         <li><strong>pages</strong>: the list of pages in the site folder to render using Jinja.</li>
                         <li><strong>resources</strong>: the list of resources in the site folder to render using Jinja.</li>
                         <li><strong>data</strong>: site-specific data to make available to site pages.</li>
@@ -100,7 +104,14 @@
                     </ul>
                 </li>
             </ul>
+        </p>
 
+        <p>
+            You don't <em>have</em> to store custom templates or sites within the package.
+            In addition to the <code>site_pkg</code> parameter discussed above, the optional <code>templ_dir</code> parameter builds a site using a (relative or absolute) path to a directory containing template files.
+        </p>
+
+        <p>
             See the included templates for examples.
             Jinja also has great <a href="https://jinja.palletsprojects.com/en/3.0.x/templates/" target="_blank">documentation for template designers</a>.
         </p>
