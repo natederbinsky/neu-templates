@@ -9,4 +9,5 @@ setup(name='neutemplates',
       author_email='n.derbinsky@northeastern.edu',
       url='https://derbinsky.info',
       packages=['neutemplates'],
+      install_requires=['Jinja2', 'jinja2-highlight', 'MarkupSafe', 'Pygments'],
      )
