@@ -1,0 +1,134 @@
+{% extends "bootstrap5/page.jinja" %}
+
+{% block title %}Lorem Ipsum{% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h1 class="display-2">Example Page</h1>
+
+        <h2>Site Data</h2>
+        <ul>
+            {% for key, value in data.items() %}
+            <li><code>{{ key }}</code> = {{ value }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Lorem Ipsum</h2>
+
+        <p>
+            The following content was generated using: {{ data.source }} (parameter={{ data.param }}, which in binary is {{ bin( data.param ) }}).
+        </p>
+
+        <p>
+            Whether or not the last paragraph is shown: <code>{{ data.showLast }}</code>
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Luctus venenatis lectus magna fringilla urna porttitor. 
+            Amet aliquam id diam maecenas ultricies. 
+            Amet massa vitae tortor condimentum lacinia quis vel. 
+            Massa enim nec dui nunc mattis enim ut tellus. 
+            Diam quis enim lobortis scelerisque fermentum. 
+            Orci dapibus ultrices in iaculis nunc sed. 
+            A iaculis at erat pellentesque adipiscing commodo. 
+            Erat velit scelerisque in dictum non. 
+            Nunc sed velit dignissim sodales ut eu sem integer vitae. 
+            Ornare arcu odio ut sem. 
+            Imperdiet proin fermentum leo vel. 
+            Vel risus commodo viverra maecenas. 
+            In mollis nunc sed id semper. 
+            Eget nunc scelerisque viverra mauris in aliquam sem. 
+            Hac habitasse platea dictumst quisque. 
+            Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. 
+            Purus in massa tempor nec feugiat nisl pretium fusce. 
+            Duis tristique sollicitudin nibh sit amet commodo nulla.
+        </p>
+
+        <p>
+            Dictum varius duis at consectetur lorem donec massa. 
+            Euismod elementum nisi quis eleifend quam adipiscing vitae. 
+            Erat velit scelerisque in dictum. 
+            Amet tellus cras adipiscing enim eu turpis. 
+            Quis vel eros donec ac odio tempor orci. 
+            Orci dapibus ultrices in iaculis nunc. 
+            Cras pulvinar mattis nunc sed blandit libero volutpat. 
+            Enim eu turpis egestas pretium aenean pharetra. 
+            Quam elementum pulvinar etiam non quam lacus suspendisse. 
+            Ornare suspendisse sed nisi lacus sed viverra tellus. 
+            At consectetur lorem donec massa sapien faucibus et.
+        </p>
+
+        <p>
+            Ante in nibh mauris cursus mattis. 
+            Congue nisi vitae suscipit tellus. 
+            Elit pellentesque habitant morbi tristique senectus. 
+            Aliquam sem fringilla ut morbi tincidunt augue. 
+            Eu volutpat odio facilisis mauris sit amet massa vitae. 
+            Sed felis eget velit aliquet sagittis id consectetur purus ut. 
+            Faucibus et molestie ac feugiat sed lectus vestibulum. 
+            Consectetur a erat nam at lectus urna. 
+            Tristique magna sit amet purus gravida quis blandit turpis cursus. 
+            Semper eget duis at tellus at urna. 
+            Duis at consectetur lorem donec massa. 
+            Leo urna molestie at elementum. 
+            Ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae. 
+            Sed adipiscing diam donec adipiscing tristique risus nec feugiat. 
+            Sed nisi lacus sed viverra.
+        </p>
+
+        <p>
+            Semper quis lectus nulla at volutpat diam ut. 
+            Ac ut consequat semper viverra. 
+            Lorem dolor sed viverra ipsum nunc aliquet bibendum enim. 
+            Felis bibendum ut tristique et egestas. 
+            Eget felis eget nunc lobortis mattis aliquam. 
+            Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. 
+            Vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam. 
+            Sagittis eu volutpat odio facilisis mauris. 
+            Pharetra vel turpis nunc eget. 
+            Molestie at elementum eu facilisis sed. 
+            Libero volutpat sed cras ornare arcu dui vivamus arcu. 
+            Ut enim blandit volutpat maecenas volutpat. 
+            Turpis in eu mi bibendum neque egestas congue. 
+            Tristique senectus et netus et malesuada fames ac. 
+            Pharetra convallis posuere morbi leo urna molestie at. 
+            Quis hendrerit dolor magna eget est lorem.
+        </p>
+
+        {% if data.showLast %}
+        <p>
+            Volutpat consequat mauris nunc congue nisi. 
+            Et malesuada fames ac turpis egestas integer eget aliquet. 
+            Risus viverra adipiscing at in tellus integer feugiat scelerisque. 
+            Duis ultricies lacus sed turpis. 
+            Dolor sit amet consectetur adipiscing elit duis tristique sollicitudin nibh. 
+            Turpis massa sed elementum tempus egestas. 
+            Neque convallis a cras semper. 
+            Est placerat in egestas erat imperdiet. 
+            Lobortis scelerisque fermentum dui faucibus in ornare. 
+            Pharetra pharetra massa massa ultricies mi quis hendrerit dolor magna. 
+            Sed sed risus pretium quam vulputate dignissim suspendisse. 
+            Elementum curabitur vitae nunc sed. 
+            Placerat vestibulum lectus mauris ultrices eros in cursus turpis massa. 
+            Non pulvinar neque laoreet suspendisse interdum consectetur libero. 
+            Quisque id diam vel quam elementum pulvinar. 
+            Felis donec et odio pellentesque diam volutpat commodo sed egestas. 
+            Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit. 
+            Sagittis aliquam malesuada bibendum arcu. 
+            Euismod elementum nisi quis eleifend. 
+            Est sit amet facilisis magna etiam tempor orci.
+        </p>
+        {% else %}
+        <p>
+            <strong>Paragraph hidden :'(</strong>
+        </p>
+        {% endif %}
+        
+    </div>  
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "course/page.jinja" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% call section( 'Greetings' ) -%}
+        <p>
+            Just a simple example to get you going :)
+        </p>
+    {%- endcall %}
+{% endblock %}

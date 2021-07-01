@@ -1,8 +1,8 @@
 .DS_Store
 __pycache__
 
-web-syllabus/jinja/venv
-web-syllabus/jinja/_out
+web-syllabus/yasss/venv
+web-syllabus/yasss/_out
 
 
 ## Core latex/pdflatex auxiliary files:
