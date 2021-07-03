@@ -3,6 +3,8 @@ from typing_extensions import Literal
 
 from os import path
 
+from datetime import date
+
 from yasss import gen
 
 
@@ -44,6 +46,8 @@ def build(site_dir: str, destination: str, pages: Iterable[str], resources: Iter
         'section': section,
         
         'brand_big': '{} | {}'.format(classNum, className),
+
+        'now': date.today().strftime('%d %B %Y'),
     }
     templ_data['brand_small'] = templ_data['brand_big'][:max(19, len(templ_data['brand_big']))]
 
