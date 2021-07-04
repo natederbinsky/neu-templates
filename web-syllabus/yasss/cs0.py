@@ -1,6 +1,6 @@
 import sys
 from os import path
-from typing import Any, Dict, List
+from typing import Any, Callable, Dict, List, Tuple, Union
 
 from neutemplates import course
 from yasss import util
@@ -24,8 +24,10 @@ def main(dest: str = '_out/cs0') -> None:
     ]
 
     # list of files relative to the site directory
-    # to be copied to an analogous location in destination
-    resources: List[str] = [
+    # to be copied to an analogous location in destination;
+    # can also take the form of ('relative directory', predicate('relative path', 'file name'))
+    # to consider all files in a supplied path, as validate by a function
+    resources: List[Union[str, Tuple[str, Callable[[str, str], bool]]]] = [
     ]
 
     ##

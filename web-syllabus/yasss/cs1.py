@@ -1,6 +1,6 @@
 import sys
 from os import path
-from typing import Any, Dict, List, Tuple, Union
+from typing import Any, Callable, Dict, List, Tuple, Union
 
 from markupsafe import Markup # type: ignore
 
@@ -8,7 +8,7 @@ from neutemplates import course
 from yasss import util
 
 
-def add_prof(name: str, img: str, email: str, web: str, phone: str, oh: str, resources: List[str], data: Dict[str, Any]) -> None:
+def add_prof(name: str, img: str, email: str, web: str, phone: str, oh: str, resources: List[Union[str, Tuple[str, Callable[[str, str], bool]]]], data: Dict[str, Any]) -> None:
     """Adds a professor to the data/resources lists."""
 
     img_fname = 'img/{}'.format(img)
@@ -27,7 +27,7 @@ def add_prof(name: str, img: str, email: str, web: str, phone: str, oh: str, res
     })
 
 
-def add_ta(name, img, email, oh, resources: List[str], data: Dict[str, Any]) -> None:
+def add_ta(name, img, email, oh, resources: List[Union[str, Tuple[str, Callable[[str, str], bool]]]], data: Dict[str, Any]) -> None:
     """Adds a TA to the data/resources lists."""
 
     img_fname = 'img/{}'.format(img)
@@ -85,10 +85,16 @@ def main(dest: str = '_out/cs1') -> None:
         'schedule.html',
     ]
 
+    
+    def no_ignore(path: str, fname: str) -> bool:
+        return ("ignore" not in path) and ("ignore" not in fname) and (fname != '.DS_Store')
+
     # list of files relative to the site directory
-    # to be copied to an analogous location in destination
-    resources = [
-        'readings/codd.pdf',
+    # to be copied to an analogous location in destination;
+    # can also take the form of ('relative directory', predicate('relative path', 'file name'))
+    # to consider all files in a supplied path, as validate by a function
+    resources: List[Union[str, Tuple[str, Callable[[str, str], bool]]]] = [
+        ('readings', no_ignore),
     ]
 
     ##

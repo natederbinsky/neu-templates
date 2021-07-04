@@ -1,4 +1,4 @@
-from typing import Any, Iterable, Mapping
+from typing import Any, Callable, Iterable, Mapping, Tuple, Union
 from typing_extensions import Literal
 
 from os import path
@@ -6,7 +6,7 @@ from os import path
 from yasss import gen
 
 
-def build(site_dir: str, destination: str, pages: Iterable[str], resources: Iterable[str], data: Mapping[str, Any]={}, globals: Mapping[str, Any]={}) -> Literal[True]:
+def build(site_dir: str, destination: str, pages: Iterable[str], resources: Iterable[Union[str, Tuple[str, Callable[[str, str], bool]]]], data: Mapping[str, Any]={}, globals: Mapping[str, Any]={}) -> Literal[True]:
     """Builds a site using the bootstrap5 template."""
     
     templ_name='bootstrap5'

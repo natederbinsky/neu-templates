@@ -37,7 +37,7 @@ Includes: multi-page navigation
 2. open `_out/cs0/index.html`
 
 ### Complex Example (cs1)
-Adds: page not in navigation, downloadable resource, non-page/resource files, Jinja macros, embedding code/images via Python
+Adds: page not in navigation, downloadable resources (added via directory + predicate), non-page/resource files, Jinja macros, embedding code/images via Python
 1. `python3 cs1.py`
    - You can optionally provide a path as an argument, which affects the path in the following step
 2. open `_out/cs1/index.html`

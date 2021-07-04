@@ -1,4 +1,4 @@
-from typing import Any, Dict, Iterable, Mapping
+from typing import Any, Callable, Dict, Iterable, Mapping, Tuple, Union
 from typing_extensions import Literal
 
 from os import path
@@ -8,7 +8,7 @@ from datetime import date
 from yasss import gen
 
 
-def build(site_dir: str, destination: str, pages: Iterable[str], resources: Iterable[str], nav: Mapping[str, str], home: str, classNum: str, className: str, semester: str, section: str, data: Mapping[str, Any]={}, globals: Mapping[str, Any]={}) -> bool:
+def build(site_dir: str, destination: str, pages: Iterable[str], resources: Iterable[Union[str, Tuple[str, Callable[[str, str], bool]]]], nav: Mapping[str, str], home: str, classNum: str, className: str, semester: str, section: str, data: Mapping[str, Any]={}, globals: Mapping[str, Any]={}) -> bool:
     """Builds a site using the course template."""
 
     # validate nav
