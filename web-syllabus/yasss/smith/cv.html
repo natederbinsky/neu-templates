@@ -1,0 +1,86 @@
+{% extends "faculty/print.jinja" %}
+
+{% block title %}CV{% endblock %}
+
+{% block head %}
+    {{ super() }}
+
+    <style type="text/css">
+        @media print {
+            #container {
+                font-size: 9px;
+            }
+        }
+
+        @media screen {
+            #container {
+                font-size: 12px;
+            }
+        }
+
+        #container ul {
+            padding: 0px 0px 0px 15px;
+            list-style-position: outside;
+        }
+
+        #container .title {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 16px;
+        }
+
+        #container .mug {
+            height: 70px;
+            margin: 0px 0px 15px 0px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="media">
+                <span class="pull-left"><img src="{{ data.mug }}" class="mug" /></span>
+                <div class="media-body">
+                    <h5 class="media-heading">{{ data.name }}</h5>
+                    <a href="mailto:{{ data.email }}" title="">{{ data.email }}</a><br />
+                    City, State, Country
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="title">Education</section>
+    <ul>
+        <li>Terminal Degree, Fancy School</li>
+        <li>Other Degree, Fancy School</li>
+    </ul>
+
+    <section class="title">Appointments</section>
+    <ul>
+        <li>Full Prof, School A</li>
+        <li>Middle Prof, School B</li>
+        <li>Newbie Prof, School B</li>
+    </ul>
+
+    <section class="title">Publications</section>
+    <ul>
+        <li>Important Title. <em>Important Journal</em>. 13-24. (long long ago)</li>
+    </ul>
+
+    <section class="title">Teaching</section>
+    <ul>
+        <li>Whatever they made me do.</li>
+    </ul>
+
+    <section class="title">Service</section>
+    <ul>
+        <li>Program committee</li>
+        <li>Dept Admissions committee</li>
+    </ul>
+
+    <section class="title">Funding</section>
+    <ul>
+        <li>Career Award, $$$ (<em>thank you NSF!!!</em>)</li>
+    </ul>
+
+{% endblock %}

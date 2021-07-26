@@ -1,0 +1,60 @@
+{% extends "faculty/page.jinja" %}
+
+{% block title %}Research{% endblock %}
+
+{% block content %}
+    {% call pageHeader( self.title() ) %}
+        My research is impactful and interesting!
+    {% endcall %}
+
+    {%- macro section(img, title, subtitle, blurb) %}
+        <hr style="page-break-before: always;" />
+            
+        {% set content=caller() %}
+        {% call leftRight(img) %}
+            <h2>{{ titleMuted(title + '.', subtitle + '.') }}</h2>
+
+            {% if blurb %}
+            <p>
+                {{ blurb|safe }}
+            </p>
+            {{ mtPar }}
+            {% endif %}
+
+            {{ content }}
+        {% endcall %}
+    {% endmacro -%}
+
+    {% call section('img/nobel.png', 'Papers', 'Highly cited', 'The best research ever.') %}
+        {% call panel('Recent Articles') %}
+            {% call panelBody() %}
+                <p>Some of my classics.</p>
+                <p>Have you cited me yet?</p>
+            {% endcall %}
+
+            {% call listGroup() %}
+                {% call listGroupItem(title='Best paper', left=imgButton('files/imitation.pdf', 'img/screenshot.png'), right='{} {}'.format(glyphButton('book', 'files/imitation.pdf'), videoButton('YT', 'Best medicine for insomnia :)', 'bfO4EkoGh40'))) %}
+                By me, and only me. 
+                    {% call modalLink('Reference Info', 'bibtex1', '[bib]') %}
+                    <div class="text-left">
+                        @article{perkel2018jupyter,<br />
+                            title={Why Jupyter is data scientists' computational notebook of choice},<br />
+                            author={Perkel, Jeffrey M},<br />
+                            journal={Nature},<br />
+                            volume={563},<br />
+                            number={7732},<br />
+                            pages={145--147},<br />
+                            year={2018},<br />
+                            publisher={Nature Publishing Group}<br />
+                          }
+                    </div>
+                    {% endcall %}
+                {% endcall %}
+                {% call listGroupItem(title='Best poster', right=glyphButton('home', 'https://scholar.google.com')) %}
+                Grad students helped with this one ...
+                {% endcall %}
+            {% endcall %}
+        {% endcall %}
+    {% endcall %}
+
+{% endblock %}

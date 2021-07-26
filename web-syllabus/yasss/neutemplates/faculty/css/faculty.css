@@ -1,0 +1,88 @@
+
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+h1 {
+    color: #CC0000;
+}
+
+h2 {
+    color: #CC0000;
+}
+
+a {
+    color: #CC0000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+
+.navbar {
+	margin-bottom: 0;
+	background-color: #353535;
+	/*z-index: 9999;*/
+	border: 0;
+	font-size: 12px !important;
+	/* line-height: 1.42857143 !important; */
+	letter-spacing: 0.1px;
+	border-radius: 0;
+
+	opacity: 0.95;
+}
+
+.navbar-header {
+    text-transform: uppercase;
+}
+
+.navbar li a, .navbar .navbar-brand {
+	color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+	color: #563d7c !important;
+	background-color: #fff !important;
+}
+
+@media screen {
+    #jumbo {
+        padding: 90px 0px 40px 0px;
+        margin-bottom: -50px;
+    }
+
+    #container {
+        padding-top: 70px;
+    }
+}
+
+@media print {
+    a[href]:after {
+        content: none !important;
+    }
+}
+
+.panel-title {
+    font-weight: bold;
+}
+
+.media-heading {
+    font-weight: bold;
+}
+
+footer {
+    border-top: 1px solid #EEEEEE;
+    font-size: small;
+    
+    margin-top: 20px;
+    padding: 20px 0px 20px 0px;
+}
+
+footer .update {
+    font-style: italic;
+}
+

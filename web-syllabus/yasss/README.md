@@ -65,3 +65,50 @@ Adds: page not in navigation, downloadable resources (added via directory + pred
    - `className`: the course name (e.g., "Introduction to X")
    - `semester`: the semester name (e.g., "Fall 2021")
    - `section`: the section designation (e.g., "Section 1")
+
+## Template: `faculty`
+Provides support for multi-page navigation (via [bootstrap v3](https://getbootstrap.com/docs/3.4/)), as well as custom CSS and Jinja macros.
+
+### Moderate Example (smith)
+Includes: multi-page navigation, downloadable resources, Jinja macros (e.g., badges, Bootstrap media panels), custom page header
+1. `python3 smith.py`
+   - You can optionally provide a path as an argument, which affects the path in the following step
+2. open `_out/smith/index.html`
+
+### Notes
+- Three Jinja templates: `course/page.jinja` (main), `course/jumbo.jinja` (adds jumbotron header), `course/print.jinja` (adds css to support full-page printing)
+   - The `title` block is required (sets the title in head)
+   - The `head` block is optional (customization of head)
+   - The `content` block is required (contents of body between logo and footer)
+   - The `jumbocontent` block (required for `jumbo`) is the content of the header
+- Jinja macros
+   - `pageHeader`: create a consistent page-heading title and subtitle
+   - `titleMuted`: create a consistent section heading and (muted) header
+   - `leftRight`: create a row with a left-hand image
+   - `panel`: create a bootstrap panel
+   - `panelBody`: within a panel, create a text/image section
+   - `listGroup`: within a panel, create a context for list items
+   - `listGroupItem`: within a `listGroup`, create a row with an optional title, left elements, and right elements
+   - `imgButton`: create a bootstrap button with an image as content
+   - `glyph`: create a bootstrap glyph
+   - `glyphButton`: create a bootstrap button using a glyph as content
+   - `videoLink`: creates a link that invokes a modal with embedded video content
+   - `videoButton`: creates a glyph button that invokes a model with embedded video content
+   - `modalLink`: creates a link that invokes a modal with arbitrary content (contained within an id'd block)
+   - `picLink`: creates a link that invokes a model with an embedded image
+- Python functions (for populating the `badges` build parameter below)
+   - `make_linkedin`: creates a LinkedIn badge
+   - `make_gscholar`: creates a Google Scholar badge
+   - `make_github`: creates a GitHub badge
+   - `make_custom_badge`: creates a custom badge (with image and URL)
+- Non-bootstrap CSS includes...
+   - Some basic styling over bootstrap defaults
+- Build parameters support the navbar, consistent heading/titling, and footer, including...
+   - `nav`: a mapping between titles and pages for the navbar
+   - `home`: the key of the nav mapping that is the home page
+   - `personName`: person's name
+   - `contactEmail`: person's e-mail address
+   - `modDate`: visual modification date
+   - `favicon`: browser icon
+   - `ganalytics`: (optional) id for Google Analytics
+   - `badges`: (optional) sequence using Python functions above

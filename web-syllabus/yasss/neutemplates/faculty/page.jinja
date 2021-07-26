@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% if _tdata.ganalytics %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ _tdata.ganalytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ _tdata.ganalytics }}');
+    </script>
+  {% endif %}
+
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{{ _tdata.name }} - {% block title required %}{% endblock %}</title>
+
+	<link rel="shortcut icon" href="{{ _tdata.favicon }}" type="image/x-icon">
+	<link rel="icon" href="{{ _tdata.favicon }}" type="image/x-icon">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/faculty.css" rel="stylesheet">
+
+    {%- block head %}{% endblock %}
+</head>
+<body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<div class="modal fade hidden-print" id="videomodal" tabindex="-1" role="dialog" aria-labelledby="videomodaltitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h5 class="modal-title" id="videomodaltitle">Title</h4>
+            </div>
+            <div class="modal-body text-center">
+                <iframe id="videomodaliframe" width="520" height="390" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade hidden-print" id="htmlmodal" tabindex="-1" role="dialog" aria-labelledby="htmlmodaltitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h5 class="modal-title" id="htmlmodaltitle">Title</h4>
+            </div>
+            <div class="modal-body text-center" id="htmlmodalcontent"></div>
+          </div>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        var videosource = '';
+        
+        $('#videomodal').on('shown.bs.modal', function () { $('#videomodaliframe').attr( 'src', videosource ); });
+        $('#videomodal').on('hide.bs.modal', function () { $('#videomodaliframe').attr( 'src', '' ); });
+        
+        function modalvideo(id, title, type) {
+            if ( type == 'YT' ) {
+                videosource = ( 'https' + '://www.youtube.com/embed/' + id + '?rel=0&amp;autoplay=1' );
+            } else if ( type == 'VM' ) {
+                videosource = ( 'https' + '://player.vimeo.com/video/' + id + '?autoplay=1' );
+            } else {
+                return;
+            }
+            
+            $('#videomodaltitle').html( title );
+            $('#videomodal').modal('show');
+        }
+    
+        //
+        
+        function modalhtml(title, contentid) {
+            $('#htmlmodalcontent').html( $( '#' + contentid ).html() );
+            $('#htmlmodaltitle').html( title );
+            
+            $('#htmlmodal').modal('show');
+        }
+    </script>
+
+    <nav class="navbar navbar-default navbar-fixed-top hidden-print">
+		<div class="container">
+			<button type="button" class="navbar-toggle navbar-right" data-toggle="collapse" data-target="#myNavbar" id="burger">
+				<span class="icon-bar" style="background-color: white"></span>
+				<span class="icon-bar" style="background-color: white"></span>
+				<span class="icon-bar" style="background-color: white"></span>
+			</button>
+
+			<div class="navbar-header">
+				<a class="navbar-brand" href="{{ _tdata.nav[_tdata.home] }}">
+					<span class="hidden-xs">{{ _tdata.name }}</span>
+					<span class="visible-xs">{{ _tdata.name_small }}</span>
+				</a>
+				{% for badge in _tdata.badges %}
+				<a class="navbar-brand" href="{{ badge[1] }}" target="_blank">
+					<img class="img-rounded" src="{{ badge[2] }}" style="width: 20px; height: 20px" />
+				</a>
+				{% endfor %}
+			</div>
+
+			{% set _fname = self._TemplateReference__context.name[self._TemplateReference__context.name.rfind('/')+1:] -%}
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+				{% for k,v in _tdata.nav.items() -%}
+					<li{% if v == _fname %} class="active"{% endif %}><a href="{{ v }}">{{ k }}</a></li>
+				{%- endfor %}
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	{%- from 'faculty/_extra.jinja' import pageHeader, titleMuted, leftRight, panel, panelBody, listGroup, listGroupItem, imgButton, glyph, glyphButton, videoLink, videoButton, modalLink, picLink %}
+	{% block precontainer %}{% endblock %}
+
+    <div id="container" class="container">
+        {%- block content required %}{%- endblock %}
+
+		<footer class="hidden-print">
+			<div class="copyright">
+				&copy; <a href="mailto:{{ _tdata.email }}">{{ _tdata.name }}</a> {{ _tdata.year }}
+			</div>
+
+			<div class="update">
+				This page was last modified on: {{ _tdata.mod }}
+			</div>
+		</footer>
+    </div>
+
+	<script>
+		$(document).ready(function(){
+			// enable tooltips
+			$('[data-toggle="tooltip"]').tooltip();
+
+            {% if _tdata.nav|length <= 1 %}
+            $('#burger').hide();
+            {% endif %}
+		});
+	</script>
+</body>
+</html>

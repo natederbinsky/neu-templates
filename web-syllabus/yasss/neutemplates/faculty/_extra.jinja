@@ -1,0 +1,87 @@
+        {%- macro pageHeader(title) %}
+        <header>
+            <h1 class="text-center">{{ title }}</h1>
+            <p class="lead text-center">
+            {{ caller()|indent(8) }}
+            </p>
+        </header>
+        {%- endmacro %}
+
+        {%- macro titleMuted(title, subtitle) %}{{title}} <span class="text-muted">{{ subtitle }}</span>{%- endmacro %}
+
+        {%- macro leftRight(img) %}
+        <div class="row">
+            <div class="col-md-2"><img class="img-responsive" src="{{ img }}"></div>
+            <div class="col-md-10">
+            {{ caller()|indent(4) }}
+            </div>
+        </div>
+        {%- endmacro %}
+
+        {%- macro panel(title) %}
+        <div class="panel panel-default">
+            {%- if title %}
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ title }}</h3>
+            </div>
+            {%- endif %}
+
+            {{ caller()|indent(4) }}
+        </div>
+        {%- endmacro %}
+
+        {%- macro panelBody() %}
+        <div class="panel-body">
+        {{ caller() }}
+        </div>
+        {%- endmacro %}
+
+        {%- macro listGroup() %}
+        <ul class="list-group">
+        {{ caller() }}
+        </ul>
+        {%- endmacro %}
+
+        {%- macro listGroupItem(title='', left='', right='', titleTag='h5') %}
+        <li class="list-group-item">
+            <div class="media">
+                {% if left %}<div class="pull-left">{{ left }}</div>{% endif %}
+                {% if right %}<div class="pull-right">{{ right }}</div>{% endif %}
+                <div class="media-body">
+                    <{{ titleTag }} class="media-heading">{{ title }}</{{ titleTag }}>
+                    {{- caller()|indent(4) }}
+                </div>
+                
+            </div>
+        </li>
+        {%- endmacro %}
+
+        {%- macro imgButton(href, imgSource, title="", newWindow=True) %}
+        <a href="{{ href }}"{{ '{}'.format(' target="_blank"' if newWindow else '') }} title="{{ title }}"><img src="{{ imgSource }}" class="img-thumbnail"></a>
+        {%- endmacro %}
+
+        {%- macro glyph(name) %}
+        <span class="glyphicon glyphicon-{{ name }}" aria-hidden="true"></span>
+        {%- endmacro %}
+
+        {%- macro glyphButton(glyphName, href, size="sm", title="") %}
+        <a class="btn btn-default btn-{{ size }}" href="{{ href }}" target="_blank" title="{{ title }}">{{ glyph(glyphName) }}</a>
+        {%- endmacro %}
+
+        {%- macro videoLink(type, title, id, txt) -%}
+        <a href="#" title="{{ title }}" onclick="modalvideo( '{{ id.replace("'", "\\'") }}', '{{ title.replace("'", "\\'") }}', '{{ type.replace("'", "\\'") }}' ); return false;">{{ txt }}</a>
+        {%- endmacro %}
+
+        {%- macro videoButton(type, title, id, size="sm", glyphName="film") -%}
+        <a class="btn btn-default btn-{{ size }}" title="{{ title }}" onclick="modalvideo( '{{ id.replace("'", "\\'") }}', '{{ title.replace("'", "\\'") }}', '{{ type.replace("'", "\\'") }}' ); return false;">{{ glyph(glyphName) }}</a>
+        {%- endmacro %}
+
+        {%- macro modalLink(title, id, txt) %}
+        <a href="#" title="{{ title }}" onclick="modalhtml( '{{ title.replace("'", "\\'") }}', '{{ id.replace("'", "\\'") }}' ); return false;">{{ txt }}<div id="{{ id }}" class="hidden">{{- caller() -}}</div></a>
+        {%- endmacro %}
+
+        {%- macro picLink(title, id, imgPath, txt) %}
+        {%- call modalLink(title, id, txt) -%}
+            <img class="img-responsive" src="{{ imgPath }}" />
+        {%- endcall %}
+        {%- endmacro %}
