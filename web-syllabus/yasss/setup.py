@@ -9,4 +9,5 @@ setup(name='neutemplates',
       author_email='n.derbinsky@northeastern.edu',
       url='https://derbinsky.info',
       packages=['neutemplates'],
+      install_requires=['yasss'],
      )
