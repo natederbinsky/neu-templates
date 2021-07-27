@@ -9,5 +9,5 @@ setup(name='neutemplates',
       author_email='n.derbinsky@northeastern.edu',
       url='https://derbinsky.info',
       packages=['neutemplates'],
-      install_requires=['yass @ https://github.com/natederbinsky/yasss.git'],
+      install_requires=['yasss @ git+https://github.com/natederbinsky/yasss.git#egg=yasss'],
      )
