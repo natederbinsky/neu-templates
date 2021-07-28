@@ -35,7 +35,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
 				{% for k,v in _tdata.nav.items() -%}
-					<li{% if v == _fname %} class="active"{% endif %}><a href="{{ v }}">{{ k }}</a></li>
+					<li{% if (v == _fname) or (v == nav_active) %} class="active"{% endif %}><a href="{{ v }}">{{ k }}</a></li>
 				{%- endfor %}
 				</ul>
 			</div>
