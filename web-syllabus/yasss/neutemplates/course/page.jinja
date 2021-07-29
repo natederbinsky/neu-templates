@@ -31,7 +31,7 @@
 				</a>
 			</div>
 
-			{% set _fname = self._TemplateReference__context.name[self._TemplateReference__context.name.rfind('/')+1:] -%}
+			{% set _fname = template_fname(self) -%}
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
 				{% for k,v in _tdata.nav.items() -%}
