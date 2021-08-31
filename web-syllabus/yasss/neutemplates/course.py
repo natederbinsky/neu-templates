@@ -49,7 +49,8 @@ def build(site_dir: str, destination: str, pages: Iterable[str], resources: Iter
 
         'now': date.today().strftime('%d %B %Y'),
     }
-    templ_data['brand_small'] = templ_data['brand_big'][:max(19, len(templ_data['brand_big']))]
+    _maxlen = 24
+    templ_data['brand_small'] = templ_data['brand_big'][:min(_maxlen, len(templ_data['brand_big']))] + ('...' if len(templ_data['brand_big'])>_maxlen else '')
 
     templ_globals = dict(globals)
     templ_globals['zip'] = zip
