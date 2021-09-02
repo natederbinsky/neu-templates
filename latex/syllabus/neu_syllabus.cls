@@ -135,7 +135,7 @@ Northeastern’s Title IX Policy prohibits Prohibited Offenses, which are define
 The Title IX Policy applies to the entire community, including male, female, transgender students, faculty and staff.
 \\
 
-If you or someone you know has been a survivor of a Prohibited Offense, confidential support and guidance can be found through University Health and Counseling Services staff\footnote{\url{http://www.northeastern.edu/uhcs/}} and the Center for Spiritual Dialogue and Service clergy members\footnote{\url{http://www.northeastern.edu/spirituallife/}}.
+If you or someone you know has been a survivor of a Prohibited Offense, confidential support and guidance can be found through University Health and Counseling Services staff\footnote{\url{https://www.northeastern.edu/uhcs}} and the Center for Spiritual Dialogue and Service clergy members\footnote{\url{https://www.northeastern.edu/spirituallife}}.
 By law, those employees are not required to report allegations of sex or gender-based discrimination to the University.
 \\
 
@@ -149,11 +149,11 @@ Reporting Prohibited Offenses to NUPD does NOT commit the victim/affected party 
 In case of an emergency, please call 911.
 \\
 
-Please visit \texttt{http://www.northeastern.edu/titleix} for a complete list of reporting options and resources both on- and off-campus.
+Please visit \texttt{https://www.northeastern.edu/titleix} for a complete list of reporting options and resources both on- and off-campus.
 
 \subsection*{Students With Disabilities}
 
-Students who have disabilities who wish to receive academic services and/or accommodations should visit the Disability Resource Center\footnote{\url{http://www.northeastern.edu/drc}} at 20 Dodge Hall or call (617) 373-2675.
+Students who have disabilities who wish to receive academic services and/or accommodations should visit the Disability Resource Center\footnote{\url{https://drc.sites.northeastern.edu}} at 20 Dodge Hall or call (617) 373-2675.
 If you have already done so, please provide your letter from the DRC to the instructor early in the semester to arrange those accommodations.
 }
 
