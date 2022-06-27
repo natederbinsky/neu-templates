@@ -53,19 +53,19 @@
 }
 
 \newcommand{\SectionE} {
-    \DossierSection{4}{Candidate's Statements and Supporting Evidence}
+    \DossierSection{4}{Statements}
 }
 
 \newcommand{\SectionF} {
-    \DossierSection{5}{Performance Reviews}
+    \DossierSection{5}{Annual Performance Reviews}
 }
 
 \newcommand{\SectionG} {
-    \DossierSection{6}{Comprehensive List of Contents for Appendices}
+    \DossierSection{6}{Comprehensive List of Supporting Materials}
 }
 
 \newcommand{\AppendixA}{
-    \DossierSection{0}{Teaching Supporting Materials}
+    \DossierSection{0}{Teaching}
 }
 
 \newcommand{\AppendixB}{
@@ -73,5 +73,5 @@
 }
 
 \newcommand{\AppendixC}{
-    \DossierSection{2}{Service}
+    \DossierSection{2}{Service Activities}
 }
