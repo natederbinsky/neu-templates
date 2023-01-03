@@ -79,10 +79,11 @@ def main(dest: str = '_out/smith') -> None:
         modDate=datetime.datetime.now(),
         favicon='img/favicon.ico',
 
-        badges={
+        badges=(
             faculty.make_gscholar('VWCHlwkAAAAJ'),
-            faculty.make_linkedin('barackobama')
-        },
+            faculty.make_linkedin('barackobama'),
+            faculty.make_github('torvalds')
+        ),
         
         data=data,
         globals={},
